@@ -1,0 +1,138 @@
+$dark-gray: hsl(0, 0%, 59%);
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: 1.8rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+.top {
+    height: 35vh;
+    background-image: url('./assets/pattern-bg-desktop.png');
+    background-size: cover;
+    position: relative;
+    display: flex;
+}
+
+.content__container {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    justify-content: center;
+}
+
+.heading {
+    color: #fff;
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+.search {
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: center;
+
+    &__input-box {
+        display: flex;
+        height: 5rem;
+        max-width: 70rem;
+    }
+
+    &__input {
+        min-width: 45rem;
+        flex: 1;
+        align-self: stretch;
+        border: none;
+        padding: 0 2rem;
+        border-radius: 1.5rem 0 0 1.5rem;
+        font-size: 1.8rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__icon-box {
+        display: inline-block;
+        width: 5rem;
+        background-color: #000;
+        align-self: stretch;
+        position: relative;
+        border-radius: 0 1.5rem 1.5rem 0;
+        border: none;
+        transition: all .2 ease-in-out;
+
+        &:hover {
+            background-color: #333;
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        @include absCenter;
+        transition: all .2 ease;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.results {
+    background-color: #fff;
+    display: flex;
+    border-radius: 1.5rem;
+    padding: 3.5rem 0;
+}
+
+.result {
+    min-width: 28rem;
+    padding: 0 3.5rem;
+
+    &__title {
+        color: $dark-gray;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 3rem;
+        width: max-content;
+    }
+
+    &__value {
+        font-size: 2.7rem;
+        font-weight: 500;
+    }
+}
+
+.result:not(:last-child) {
+    border-right: 1px $dark-gray solid;
+}
+
+.leaflet-container {
+    height: 65vh;
+    z-index: -1;
+    position: relative;
+}
